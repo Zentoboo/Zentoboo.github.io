@@ -7,4 +7,4 @@ function Explore() {
   );
 }
 
-export Explore;
+export default Explore;
