@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-accent: #0affef;
+  --color-muted: #888888;
+
+  --font-main: 'Bitcount Prop Single', sans-serif;
+  --font-code: 'Source Code Pro', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-code);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+header, footer {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  padding: 1rem;
+  text-align: center;
+}
+
+code, pre {
+  font-family: var(--font-code);
+}
+
+h1 {
+  font-family: var(--font-main);
+  font-weight: 300;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,54 @@
+:root {
+  --color-sidebar-bg: #111;
+  --color-text: #ffffff;
+  --color-accent: #0affef;
+  --color-muted: #888888;
+  --color-sidebar-hover: #222;
+
+  --font-main: 'Bitcount Prop Single', sans-serif;
+  --font-code: 'Source Code Pro', monospace;
+}
+
+/* Layout.css */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 220px;
+  background-color: var(--color-sidebar-bg);
+  color: var(--color-text);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* Links in sidebar */
+.sidebar a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.sidebar a:hover {
+  color: var(--color-muted);
+  background-color: var(--color-sidebar-hover);
+}
+
+/* Main content area */
+.main-content {
+  margin-left: 220px;
+  padding: 1rem;
+  flex: 1;
+}

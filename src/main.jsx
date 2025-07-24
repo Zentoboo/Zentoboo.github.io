@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import Explore from "./components/Explore";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
+import 'Main.css';
 
 const root = document.getElementById("root");
 
