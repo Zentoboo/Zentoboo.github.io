@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Explore from "./components/Explore";
-import Projects from "./components/Projects";
-import Contacts from "./components/Contacts";
+import Explore from "./components/content/Explore";
+import Projects from "./components/content/Projects";
+import Contacts from "./components/content/Contacts";
 
 const root = document.getElementById("root");
 

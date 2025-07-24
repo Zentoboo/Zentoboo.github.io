@@ -1,7 +1,10 @@
-import { Outlet, Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import './Layout.css';
+import AnimatedOutlet from "./extra/AnimatedOutlet";
+import { useNavigationHotkeys } from "./hooks/useHotkeys";
 
 function Layout() {
+  useNavigationHotkeys();
   return (
     <div className="layout-container">
       <nav className="sidebar">
@@ -9,13 +12,13 @@ function Layout() {
           <img src="src\assets\profile-picture.jpg" alt="profile picture" />
           <p>Christopher Bertrand</p>
         </div>
-        <Link to="/">Explore</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/contacts">Contacts</Link>
+        <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""}>Explore <span className="hotkey">1</span></NavLink>
+        <NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""}>Projects <span className="hotkey">2</span></NavLink>
+        <NavLink to="/contacts" className={({ isActive }) => isActive ? "active" : ""}>Contacts <span className="hotkey">3</span></NavLink>
       </nav>
 
       <main className="main-content">
-        <Outlet />
+        <AnimatedOutlet />
       </main>
     </div>
   );
