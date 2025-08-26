@@ -10,8 +10,9 @@ export const useNavigationHotkeys = () => {
       
       const hotkeys = {
         '1': '/',
-        '2': '/projects', 
-        '3': '/contacts'
+        '2': '/projects',
+        '3': '/background',
+        '4': '/contacts'
       };
 
       if (hotkeys[e.key]) {

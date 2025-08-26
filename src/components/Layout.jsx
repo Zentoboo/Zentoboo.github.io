@@ -62,7 +62,8 @@ function Layout() {
           </div>
           <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""}>Explore <span className="hotkey">1</span></NavLink>
           <NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""}>Projects <span className="hotkey">2</span></NavLink>
-          <NavLink to="/contacts" className={({ isActive }) => isActive ? "active" : ""}>Contacts <span className="hotkey">3</span></NavLink>
+          <NavLink to="/background" end className={({ isActive }) => isActive ? "active" : ""}>Background <span className="hotkey">3</span></NavLink>
+          <NavLink to="/contacts" className={({ isActive }) => isActive ? "active" : ""}>Contacts <span className="hotkey">4</span></NavLink>
         </div>
         <div className="scroller">
           <div className="scroller-content" ref={scrollerRef}>
