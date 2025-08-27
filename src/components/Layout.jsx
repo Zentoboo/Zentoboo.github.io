@@ -7,17 +7,17 @@ import { useNavigationHotkeys } from "./hooks/useHotkeys";
 function Layout() {
   useNavigationHotkeys();
   const scrollerRef = useRef(null);
-  
+
   useEffect(() => {
     const createInfiniteScroll = () => {
       const scrollerContent = scrollerRef.current;
       if (!scrollerContent) return;
-      
+
       // Clear existing content
       scrollerContent.innerHTML = '';
-      
+
       const text = "I use this site to try out weird frontend stuffs.";
-      
+
       // duplicates needed
       const containerWidth = scrollerContent.parentElement.offsetWidth;
       const tempSpan = document.createElement('span');
@@ -28,13 +28,13 @@ function Layout() {
       tempSpan.style.position = 'absolute';
       tempSpan.textContent = text;
       document.body.appendChild(tempSpan);
-      
+
       const textWidth = tempSpan.offsetWidth;
       document.body.removeChild(tempSpan);
-      
+
       // enough duplicates for ensure seamless loop
       const duplicatesNeeded = Math.ceil((containerWidth * 2) / textWidth) + 2;
-      
+
       for (let i = 0; i < duplicatesNeeded; i++) {
         const span = document.createElement('span');
         span.style.flexShrink = '0';
@@ -44,9 +44,9 @@ function Layout() {
         scrollerContent.appendChild(span);
       }
     };
-    
+
     createInfiniteScroll();
-    
+
     // Recreate on window resize
     window.addEventListener('resize', createInfiniteScroll);
     return () => window.removeEventListener('resize', createInfiniteScroll);
@@ -57,7 +57,7 @@ function Layout() {
       <nav className="sidebar">
         <div className="nav-content">
           <div className="profile">
-            <img src="public\assets\profile-picture.jpg" alt="profile picture" />
+            <img src="/assets/profile-picture.jpg" alt="profile picture" />
             <p>Christopher Bertrand</p>
           </div>
           <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""}>Explore <span className="hotkey">1</span></NavLink>
