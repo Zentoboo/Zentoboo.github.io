@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useRef } from 'react';
-import './Layout.css';
+import '../css/Layout.css';
 import AnimatedOutlet from "./extra/AnimatedOutlet";
 import { useNavigationHotkeys } from "./hooks/useHotkeys";
 
