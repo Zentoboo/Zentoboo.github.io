@@ -6,6 +6,7 @@ import Explore from "./components/content/Explore";
 import Background from "./components/content/Backgroud";
 import Projects from "./components/content/Projects";
 import Contacts from "./components/content/Contacts";
+import NotFound from "./components/content/NotFound";
 
 const root = document.getElementById("root");
 
@@ -17,6 +18,7 @@ ReactDOM.createRoot(root).render(
         <Route path="background" element={<Background />} />
         <Route path="projects" element={<Projects />} />
         <Route path="contacts" element={<Contacts />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   </BrowserRouter>
