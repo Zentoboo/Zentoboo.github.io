@@ -57,7 +57,7 @@ function Layout() {
       <nav className="sidebar">
         <div className="nav-content">
           <div className="profile">
-            <img src="src\assets\profile-picture.jpg" alt="profile picture" />
+            <img src="public\assets\profile-picture.jpg" alt="profile picture" />
             <p>Christopher Bertrand</p>
           </div>
           <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""}>Explore <span className="hotkey">1</span></NavLink>

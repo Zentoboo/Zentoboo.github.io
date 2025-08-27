@@ -87,7 +87,7 @@ function Background() {
                 (I'm the 2nd left guy with the Adidas sports shirt)
               </p>
               <img
-                src="src/assets/codecraft-image.png"
+                src="public\assets\codecraft-image.png"
                 alt="codecraft-winner-image"
                 className="cv-image"
               />
@@ -107,7 +107,7 @@ function Background() {
           {openImg4 && (
             <div className="collapsible-content">
               <img
-                src="src/assets/codecraft-winner.jpg"
+                src="public\assets\codecraft-winner.jpg"
                 alt="codecraft-winner-cert"
                 className="cv-image"
               />
