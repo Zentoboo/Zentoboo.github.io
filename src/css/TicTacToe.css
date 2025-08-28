@@ -19,6 +19,7 @@
     background: #111827;
     color: white;
     gap: 8px;
+    border: 1px solid var(--color-border);
 }
 
 .title {
@@ -29,13 +30,13 @@
 
 .board {
     display: grid;
-    grid-template-columns: repeat(3, 80px);
-    gap: 8px;
+    grid-template-columns: repeat(3, 70px);
+    gap: 5px;
 }
 
 .cell {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     font-size: 32px;
     font-weight: 700;
     border: 1px solid var(--color-border);
@@ -67,5 +68,26 @@
 }
 
 .reset-btn:hover {
+    background: var(--color-muted);
+}
+
+.choice {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.choice button {
+    padding: 8px 8px;
+    margin: 2px;
+    font-weight: 300;
+    border: 1px solid var(--color-border);
+    border-radius: 0px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.choice button:hover {
     background: var(--color-muted);
 }
