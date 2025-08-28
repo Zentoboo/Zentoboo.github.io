@@ -1,0 +1,71 @@
+:root {
+    --color-bg: #111;
+    --color-text: #fff;
+    --color-accent: #0affef;
+    --color-muted: #888;
+    --color-border: #444;
+
+    --font-main: 'Bitcount Prop Single', sans-serif;
+    --font-code: 'Source Code Pro', monospace;
+}
+
+.tictactoe-container {
+    height: 45vh;
+    width: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #111827;
+    color: white;
+    gap: 8px;
+}
+
+.title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 8px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    font-weight: 700;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+.cell:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.note {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-muted);
+}
+
+.reset-btn {
+    padding: 8px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+    border-radius: 0px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background: var(--color-muted);
+}
