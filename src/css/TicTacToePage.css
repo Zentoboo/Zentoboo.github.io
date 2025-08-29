@@ -51,3 +51,11 @@
     font-style: italic;
     color: var(--color-muted);
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: var(--color-border) 1px solid;
+    margin-bottom: 16px;
+}
