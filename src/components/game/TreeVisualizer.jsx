@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../css/TreeVisualizer.css";
+import "./TreeVisualizer.css";
 
 export default function TreeVisualizer({ node }) {
     return (

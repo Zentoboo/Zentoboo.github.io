@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TicTacToeWithTrace from "../game/TicTacToeWithTrace";
 import TreeVisualizer from "../game/TreeVisualizer";
-import "../../css/TicTacToePage.css";
+import "./TicTacToePage.css";
 
 export default function TicTacToePage() {
     const [minimaxTree, setMinimaxTree] = useState(null);
@@ -15,6 +15,7 @@ export default function TicTacToePage() {
                     <p className="note">play against the minimax algo</p>
                 </div>
                 <TicTacToeWithTrace onTreeUpdate={setMinimaxTree} />
+                <p>contents will me made here... ex. explanation on minimax</p>
             </div>
 
             {/* Right: Tree Visualizer */}

@@ -19,8 +19,8 @@ ReactDOM.createRoot(root).render(
         <Route path="background" element={<Background />} />
         <Route path="projects" element={<Projects />} />
         <Route path="contacts" element={<Contacts />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/tictactoe" element={<TicTacToePage />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   </BrowserRouter>

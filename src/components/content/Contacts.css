@@ -1,14 +1,3 @@
-:root {
-    --color-bg: #111;
-    --color-text: #fff;
-    --color-accent: #0affef;
-    --color-muted: #888;
-    --color-border: #444;
-
-    --font-main: 'Bitcount Prop Single', sans-serif;
-    --font-code: 'Source Code Pro', monospace;
-}
-
 .contacts-container {
     max-width: 1000px;
     margin: 0 auto;

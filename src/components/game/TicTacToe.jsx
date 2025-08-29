@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../../css/TicTacToe.css";
+import "./TicTacToe.css";
 
 export default function TicTacToe() {
     const [board, setBoard] = useState(Array(9).fill(null));
@@ -49,7 +49,6 @@ export default function TicTacToe() {
 
     return (
         <div className="tictactoe-container">
-            <h1 className="title">tictactoe</h1>
 
             {/* Choice screen */}
             {!playerSymbol && (

@@ -1,10 +1,10 @@
 import React from "react";
-import "../../css/Contacts.css";
+import "./Contacts.css";
 import { FaGithub, FaEnvelope, FaPhone, FaInstagram, FaMapMarkerAlt } from "react-icons/fa";
 
 function Contacts() {
   return (
-    <div className="contacts-container">
+    <div className="container">
       <h1 className="contacts-title">Contact Me</h1>
 
       <div className="contacts-grid">
@@ -51,7 +51,7 @@ function Contacts() {
       </div>
 
       <p className="contacts-note">
-        Feel free to reach out! I usually reply within 24 hours.
+        feel free to reach out! I usually reply within 24 hours.
       </p>
     </div>
   );

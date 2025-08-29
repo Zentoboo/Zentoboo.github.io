@@ -9,7 +9,6 @@
   --font-code: 'Source Code Pro', monospace;
 }
 
-/* Layout.css */
 .layout-container {
   display: flex;
   min-height: 100vh;
@@ -94,18 +93,6 @@
   margin-left: 320px;
   padding: 1rem;
   flex: 1;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .scroller {

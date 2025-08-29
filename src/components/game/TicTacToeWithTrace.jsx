@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../../css/TicTacToe.css";
+import "./TicTacToe.css";
 
 export default function TicTacToe({ onTreeUpdate }) {
     const [board, setBoard] = useState(Array(9).fill(null));

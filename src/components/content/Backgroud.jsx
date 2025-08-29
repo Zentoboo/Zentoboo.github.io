@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../css/Background.css";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 function Background() {
@@ -9,7 +8,7 @@ function Background() {
   const [openImg4, setOpenImg4] = useState(false);
 
   return (
-    <div className="background-container">
+    <div className="container">
       <h1 className="section-title">Background</h1>
 
       {/* Education */}
@@ -83,6 +82,9 @@ function Background() {
           </button>
           {openImg3 && (
             <div className="collapsible-content">
+              <div className="section-left">
+                <p>Basically XMUM SCDSC held a competitive programming competition for XMUM student. This was the best timing it could've been for me, as in my 1st year I was still actively doing competitive programming problems for my self-learning. Competitive programming with C++ was my first intro to programming in general and it felt natural for me... Didn't expect to win at first cuz I don't know how good the other competitors were but won it either way and I kindof carried. We answered 3 out of the 6 questions and I answered 2 of them fully on my own while I helped with solving the 3rd problem and getting the output answer correct.</p>
+              </div>
               <p className="note">
                 (I'm the 2nd left guy with the Adidas sports shirt)
               </p>

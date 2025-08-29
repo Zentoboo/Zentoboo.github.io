@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
-import "../../css/NotFound.css";
+import "./NotFound.css";
 
 export default function NotFound() {
     return (
