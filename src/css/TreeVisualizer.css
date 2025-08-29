@@ -1,42 +1,47 @@
-.column-tree {
-    display: flex;
-    align-items: flex-start;
-    overflow-x: auto;
-    gap: 16px;
-    padding: 8px;
-    background: #0f172a;
+.explorer-tree {
+    font-size: 13px;
+    line-height: 1.4;
     color: white;
+    overflow-y: auto;
+    max-height: 100%;
+    padding: 8px;
 }
 
-.tree-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    min-width: 160px;
+/* Node container */
+.explorer-node {
+    margin-top: 8px;
 }
 
-.tree-column h4 {
-    font-size: 14px;
-    margin-bottom: 4px;
-    color: #94a3b8;
-    text-align: center;
-}
-
+/* Node box */
 .node-box-indented {
     background: #1e293b;
     border: 1px solid #334155;
     border-radius: 6px;
     padding: 6px;
-    text-align: center;
-    font-size: 12px;
-    color: white;
+    display: inline-block;
+    min-width: 120px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
+.node-box-indented:hover {
+    background: #334155;
+}
+
+/* Optimal highlight */
 .node-box-indented.optimal-node {
     border: 2px solid #22c55e;
     background: #14532d;
 }
 
+/* Expand/collapse hint */
+.expand-hint {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+/* Board snapshot */
 .board-snapshot-indented {
     display: grid;
     grid-template-columns: repeat(3, 16px);

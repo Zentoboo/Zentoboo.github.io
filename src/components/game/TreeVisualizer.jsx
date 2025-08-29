@@ -1,38 +1,39 @@
+import { useState } from "react";
 import "../../css/TreeVisualizer.css";
 
 export default function TreeVisualizer({ node }) {
-    // Flatten tree into levels
-    const levels = [];
-    function traverse(n, depth = 0) {
-        if (!levels[depth]) levels[depth] = [];
-        levels[depth].push(n);
-        if (n.children) {
-            n.children.forEach((c) => traverse(c, depth + 1));
-        }
-    }
-    traverse(node);
-
     return (
-        <div className="column-tree">
-            {levels.map((level, depth) => (
-                <div key={depth} className="tree-column">
-                    <h4>Depth {depth}</h4>
-                    {level.map((n, i) => (
-                        <TreeNode key={i} node={n} />
-                    ))}
-                </div>
-            ))}
+        <div className="explorer-tree">
+            <TreeNode node={node} depth={0} />
         </div>
     );
 }
 
-function TreeNode({ node }) {
+function TreeNode({ node, depth }) {
+    const [expanded, setExpanded] = useState(false);
+
     return (
-        <div className={`node-box-indented ${node.optimal ? "optimal-node" : ""}`}>
-            <BoardSnapshot board={node.board} />
-            <p>Move: {node.move ?? "root"}</p>
-            <p>Score: {node.score}</p>
-            <p>{node.isMaximizing ? "Max" : "Min"}</p>
+        <div className="explorer-node" style={{ marginLeft: depth * 16 }}>
+            {/* Node box */}
+            <div
+                className={`node-box-indented ${node.optimal ? "optimal-node" : ""}`}
+                onClick={() => setExpanded(!expanded)}
+            >
+                <BoardSnapshot board={node.board} />
+                <p>Move: {node.move ?? "root"}</p>
+                <p>Score: {node.score}</p>
+                <p>{node.isMaximizing ? "Max" : "Min"}</p>
+                <p className="expand-hint">{expanded ? "▼ Collapse" : "▶ Expand"}</p>
+            </div>
+
+            {/* Children */}
+            {expanded && node.children && node.children.length > 0 && (
+                <div className="children-indented">
+                    {node.children.map((child, i) => (
+                        <TreeNode key={i} node={child} depth={depth + 1} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
