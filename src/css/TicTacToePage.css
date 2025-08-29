@@ -1,0 +1,37 @@
+.tictactoe-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    background: #0f172a;
+    color: white;
+    gap: 16px;
+    padding: 16px;
+}
+
+.game-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--color-border);
+}
+
+.tree-container {
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.tree-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.tree-placeholder {
+    border: 1px dashed var(--color-border);
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: var(--color-muted);
+}

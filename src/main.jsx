@@ -7,6 +7,7 @@ import Background from "./components/content/Backgroud";
 import Projects from "./components/content/Projects";
 import Contacts from "./components/content/Contacts";
 import NotFound from "./components/content/NotFound";
+import TicTacToePage from "./components/content/TicTacToePage";
 
 const root = document.getElementById("root");
 
@@ -19,6 +20,7 @@ ReactDOM.createRoot(root).render(
         <Route path="projects" element={<Projects />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/tictactoe" element={<TicTacToePage />} />
       </Route>
     </Routes>
   </BrowserRouter>
