@@ -30,7 +30,7 @@ function Projects() {
         {openProject === "tictactoe" && (
           <div className="collapsible-content">
             <div className="section-left">
-              <p>A small game with AI (Minimax algorithm)</p>
+              <p>A small game with AI (Minimax algorithm). </p>
               <Link to="/tictactoe">
                 <button>Go to TicTacToe</button>
               </Link>

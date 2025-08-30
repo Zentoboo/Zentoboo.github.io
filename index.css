@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 /* ===============================
-   Global Variables
+    Global Variables
 ================================ */
 :root {
   --color-bg: #111;
@@ -9,13 +9,15 @@
   --color-accent: #0affef;
   --color-muted: #888;
   --color-border: #444;
+  --color-sidebar-bg: #111;
+  --color-sidebar-hover: #444;
 
   --font-main: 'Bitcount Prop Single', sans-serif;
   --font-code: 'Source Code Pro', monospace;
 }
 
 /* ===============================
-   Resets
+    Resets
 ================================ */
 * {
   box-sizing: border-box;
@@ -24,7 +26,7 @@
 }
 
 /* ===============================
-   Body & Layout
+    Body & Layout
 ================================ */
 body {
   background-color: var(--color-bg);
@@ -50,8 +52,105 @@ pre {
   font-family: var(--font-code);
 }
 
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 320px;
+  background-color: var(--color-sidebar-bg);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: transform 0.3s ease;
+}
+
+/* Collapsed state */
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+/* Main content should shift */
+.main-content {
+  margin-left: 320px;
+  padding: 1rem;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+}
+
+.layout-container .main-content.sidebar-collapsed {
+  margin-left: 0;
+}
+
+.nav-content {
+  padding: 2rem 1rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.profile img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 20%;
+}
+
+.profile p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Links in sidebar */
+.sidebar a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.sidebar a:hover {
+  color: var(--color-muted);
+  background-color: var(--color-sidebar-hover);
+}
+
+.sidebar .active {
+  color: var(--color-muted);
+  background-color: var(--color-sidebar-hover);
+  font-weight: bold;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+}
+
+.hotkey {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-family: monospace;
+  margin-left: auto;
+}
+
 /* ===============================
-   Headings
+    Headings
 ================================ */
 h1 {
   font-family: var(--font-main);
@@ -96,7 +195,7 @@ h1 {
 }
 
 /* ===============================
-   Section Container
+    Section Container
 ================================ */
 .container {
   max-width: 1000px;
@@ -120,7 +219,7 @@ h1 {
 }
 
 /* ===============================
-   Collapsible Rows
+    Collapsible Rows
 ================================ */
 .collapsible-row {
   border: 1px solid var(--color-border);
@@ -146,7 +245,7 @@ h1 {
 }
 
 .collapsible-toggle:hover {
-  background: var(--color-sidebar-hover, #222);
+  background: var(--color-sidebar-hover);
 }
 
 .collapsible-content {
@@ -162,8 +261,64 @@ h1 {
   width: 100%;
 }
 
+.collapsible-toggle-sidebar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  color: var(--color-text);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0.8rem;
+  border-radius: 4px;
+}
+
+.collapsible-toggle-sidebar:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.collapsible-toggle-sidebar svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.floating-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color-text);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.floating-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.floating-toggle:active {
+  transform: scale(0.95);
+}
+
+.floating-toggle svg {
+  width: 1rem;
+  height: 1rem;
+}
+
 /* ===============================
-   Images & Notes
+    Images & Notes
 ================================ */
 .cv-image {
   max-width: 100%;
@@ -179,7 +334,7 @@ h1 {
 }
 
 /* ===============================
-   Sections
+    Sections
 ================================ */
 .section-left {
   margin-top: 1rem;
@@ -213,7 +368,7 @@ h1 {
 }
 
 /* ===============================
-   Animations
+    Animations
 ================================ */
 @keyframes fadeIn {
   from {
@@ -222,5 +377,40 @@ h1 {
 
   to {
     opacity: 1;
+  }
+}
+
+.scroller {
+  margin-top: auto;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  border: 1px solid #222;
+  background: #111;
+}
+
+.scroller-content {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  width: max-content;
+}
+
+.scroller-content:hover {
+  animation-play-state: paused;
+}
+
+.scroller-content span {
+  flex-shrink: 0;
+  padding: 15px 30px;
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
   }
 }
