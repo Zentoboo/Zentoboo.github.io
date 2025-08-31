@@ -8,29 +8,31 @@ export default function TicTacToePage() {
 
     return (
         <div className="tictactoe-page">
-            {/* Left: Game */}
-            <div className="game-container">
-                <div className="header">
-                    <h2 className="tree-title">TicTacToe</h2>
-                    <p className="note">play against the minimax algo</p>
-                </div>
-                <TicTacToeWithTrace onTreeUpdate={setMinimaxTree} />
-                <p>contents will me made here... ex. explanation on minimax</p>
+            {/* Row 1: Headers */}
+            <div className="tictactoe-header game-header">
+                <h2 className="tree-title">TicTacToe</h2>
+                <p className="note">play against the minimax algo</p>
+            </div>
+            <div className="tictactoe-header tree-header">
+                <h2 className="tree-title">Minimax Visualizer</h2>
+                <p className="note">
+                    go through the visualizer manually by expanding & collapsing nodes
+                </p>
             </div>
 
-            {/* Right: Tree Visualizer */}
+            {/* Row 2: Content */}
+            <div className="game-container">
+                <TicTacToeWithTrace onTreeUpdate={setMinimaxTree} />
+                <p>contents will be made here... ex. explanation on minimax</p>
+            </div>
+
             <div className="tree-container">
-                <div className="header">
-                    <h2 className="tree-title">Minimax Visualizer</h2>
-                    <p className="note">go through the visualizer manually by expanding & collapsing nodes</p>
-                </div>
                 {minimaxTree ? (
                     <TreeVisualizer node={minimaxTree} />
                 ) : (
                     <p>Tree will be displayed here</p>
                 )}
             </div>
-
         </div>
     );
 }

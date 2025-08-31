@@ -1,20 +1,49 @@
 .tictactoe-page {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     height: 95vh;
     background: #0f172a;
     color: white;
-    gap: 10px;
-    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0px 32px;
 }
 
+/* --- Headers (row 1) --- */
+.tictactoe-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* place them in row 1 */
+.game-header {
+    grid-column: 1;
+    grid-row: 1;
+    border-right: 1px solid var(--color-border);
+}
+
+.tree-header {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* --- Containers (row 2) --- */
 .game-container {
+    grid-column: 1;
+    grid-row: 2;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    border-right: 1px solid var(--color-border);
     padding: 16px;
+    border-right: 1px solid var(--color-border);
 }
 
 .game-container>* {
@@ -23,23 +52,32 @@
 }
 
 .tree-container {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-start;
     padding: 16px;
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
-.tree-container>* {
+.tree-container > * {
     width: 100%;
     text-align: left;
 }
 
+
+/* --- Styling --- */
 .tree-title {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 8px;
+}
+
+.tictactoe-header p {
+    text-align: right;
 }
 
 .tree-placeholder {
@@ -50,12 +88,4 @@
     justify-content: center;
     font-style: italic;
     color: var(--color-muted);
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: var(--color-border) 1px solid;
-    margin-bottom: 16px;
 }
