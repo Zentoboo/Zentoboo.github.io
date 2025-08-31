@@ -1,6 +1,5 @@
 import React from "react";
-import "./Contacts.css";
-import { FaGithub, FaEnvelope, FaPhone, FaInstagram, FaMapMarkerAlt } from "react-icons/fa";
+import { FaGithub, FaEnvelope, FaInstagram, FaMapMarkerAlt } from "react-icons/fa";
 
 function Contacts() {
   return (

@@ -368,6 +368,130 @@ h1 {
 }
 
 /* ===============================
+    Not Found Page Specific
+================================ */
+
+.notfound-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+    text-align: center;
+    padding: 2rem;
+}
+
+.notfound-title {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+    text-shadow: 0 0 10px var(--color-accent);
+}
+
+.notfound-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.notfound-message {
+    font-size: 1.2rem;
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+}
+
+.notfound-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 2px solid var(--color-border);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    color: var(--color-text);
+    font-family: var(--font-code);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, text-shadow 0.2s;
+}
+
+.notfound-link:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    text-shadow: 0 0 8px var(--color-accent);
+}
+
+.notfound-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+/* ===============================
+    Contacts Section
+================================ */
+
+.contacts-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--color-text);
+}
+
+.contacts-title {
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    box-shadow: 0 0 12px var(--color-accent);
+    transform: translateY(-3px);
+}
+
+.contact-icon {
+    font-size: 1.6rem;
+    color: var(--color-accent);
+    transition: all 0.3s ease;
+}
+
+.contact-link,
+.contact-text {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--color-accent);
+}
+
+.contacts-note {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin-top: 2rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* ===============================
     Animations
 ================================ */
 @keyframes fadeIn {
