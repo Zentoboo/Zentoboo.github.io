@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 function Background() {
+  const [view, setView] = useState("chronologically");
+
   const [openImg1, setOpenImg1] = useState(false);
   const [openImg2, setOpenImg2] = useState(false);
   const [openImg3, setOpenImg3] = useState(false);
@@ -9,7 +11,24 @@ function Background() {
 
   return (
     <div className="container">
-      <h1 className="section-title">Background</h1>
+      <div className="section-title">
+        <h1>Background</h1>
+        <div className="view-toggle">
+          <button
+            className={`toggle-btn ${view === "chronologically" ? "active" : ""}`}
+            onClick={() => setView("chronologically")}
+          >
+            Chronologically
+          </button>
+          /
+          <button
+            className={`toggle-btn ${view === "categorically" ? "active" : ""}`}
+            onClick={() => setView("categorically")}
+          >
+            Categorically
+          </button>
+        </div>
+      </div>
 
       {/* Education */}
       <div className="section">
