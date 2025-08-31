@@ -291,14 +291,16 @@ h1 {
 .collapsible-toggle-sidebar svg {
   width: 0.8rem;
   height: 0.8rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease-in-out;
+  transform: rotate(0turn);
+  transform-origin: center;
 }
 
 .collapsible-toggle-sidebar.collapsed {
   left: 8px;
 }
 .collapsible-toggle-sidebar.collapsed svg {
-  transform: rotate(180deg);
+  transform: rotate(0.5turn);
 }
 
 /* ===============================
