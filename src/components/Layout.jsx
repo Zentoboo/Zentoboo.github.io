@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import AnimatedOutlet from "./extra/AnimatedOutlet";
 import { useNavigationHotkeys } from "./hooks/useHotkeys";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 
 function Layout({ isVisible, toggleLayout }) {
   useNavigationHotkeys();
@@ -55,12 +55,6 @@ function Layout({ isVisible, toggleLayout }) {
           <div className="profile">
             <img src="/assets/profile-picture.jpg" alt="profile picture" />
             <p>Christopher Bertrand</p>
-            <button
-              onClick={toggleLayout}
-              className="collapsible-toggle-sidebar"
-            >
-              <FaChevronLeft />
-            </button>
           </div>
 
           <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
@@ -86,12 +80,12 @@ function Layout({ isVisible, toggleLayout }) {
         </div>
       </nav>
 
-      {/* Floating button when sidebar collapsed */}
-      {!isVisible && (
-        <button onClick={toggleLayout} className="floating-toggle">
-          <FaChevronRight />
-        </button>
-      )}
+      <button
+        onClick={toggleLayout}
+        className={`collapsible-toggle-sidebar ${!isVisible ? "collapsed" : ""}`}
+      >
+        <FaChevronLeft />
+      </button>
 
       <main className={`main-content ${!isVisible ? "sidebar-collapsed" : ""}`}>
         <AnimatedOutlet />
