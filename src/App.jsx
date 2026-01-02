@@ -19,11 +19,10 @@ function App() {
           <span className="separator">-</span>
           <a href="https://www.instagram.com/bertrand.zentoboo/" target="_blank" rel="noopener noreferrer">Instagram</a>
           <span className="separator">-</span>
-          <a href="mailto:c.bertrandtjo@gmail.com">Email</a>
-          <span className="separator">-</span>
-          <a href="tel:+60176761864">Phone</a>
+          <a href="mailto:c.bertrandtjo@gmail.com">c.bertrandtjo@gmail.com</a>
         </div>
-        <div className="wiki-subtitle">Gonna make it more in the future interactive bear with me :D</div>
+        <div className="wiki-subtitle">Gonna make it more in the future interactive bear with me :D<br/>
+        Gonna add more "evidence" in the form of images, videos, etc.</div>
       </div>
 
       <div className="wiki-content">
