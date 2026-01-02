@@ -9,6 +9,7 @@ function App() {
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
           <a href="#competitions">Competitions</a>
+          <a href="#organizations">Organizations</a>
         </div>
         <h1 className="wiki-title">Bertrand Christopher</h1>
         <div className="wiki-social-links">
@@ -32,7 +33,7 @@ function App() {
             <div className="infobox-header">Bertrand Christopher</div>
             <div className="infobox-image">
               <img
-                src="/assets/profile-picture.jpg"
+                src="./assets/profile-picture.jpg"
                 alt="Bertrand Christopher"
               />
             </div>
@@ -50,7 +51,9 @@ function App() {
                 <div className="infobox-label">Education</div>
                 <div className="infobox-data">
                   <a href="https://www.xmu.edu.my/">Xiamen University Malaysia</a><br />
-                  4th Year Student (3.76 CGPA)
+                  4th Year Student (3.76 CGPA)<br/>
+                  <a href="https://xinzhong.sch.id/">Xin Zhong School</a><br />
+                  Average Grade 10-12 (knowledge, practical): 93.81, 94.61
                 </div>
               </div>
               <div className="infobox-row">
@@ -74,8 +77,7 @@ function App() {
           {/* Main content */}
           <p>
             <strong>Bertrand Christopher</strong> (born 2004) is an Indonesian software engineering student
-            currently pursuing his degree at Xiamen University Malaysia. In the XMUM Indonesian community, he is best known for developing
-            <a href="https://github.com/Zentoboo/gadpa-debate">gadpa.live</a> debate web application for GADPA 2025 Congress, winning
+            currently pursuing his degree at Xiamen University Malaysia (XMUM). In the XMUM Indonesian community, he is best known for developing <a href="https://github.com/Zentoboo/gadpa-debate">gadpa.live</a> debate web application for GADPA 2025 Congress, winning
             first place in the XMUM CodeCraft 2023 competitive programming competition, and being a strong futsal goalkeeper.
           </p>
 
@@ -98,9 +100,9 @@ function App() {
 
             <h3>Technical Expertise</h3>
             <p>
-              His first programming language was C++, which he used to win first place in the
+              His first programming language was C++, learned through competitive programming, which led him to win first place in the
               XMUM CodeCraft 2023 competitive programming competition. Since then, he has expanded
-              his technical repertoire to include:
+              his knowledge to other fields dabbling in various programming languages and frameworks:
             </p>
             <ul>
               <li><strong>Web Development:</strong> .NET Core, React.js, PHP, with experience deploying to Azure and AWS</li>
@@ -108,6 +110,7 @@ function App() {
               <li><strong>Mobile Development:</strong> Android development with Kotlin</li>
               <li><strong>Data Science:</strong> Python, PySpark, machine learning applications</li>
               <li><strong>Cloud Infrastructure:</strong> Azure (SQL Database, App Services) and AWS (EC2, S3, RDS)</li>
+              <li><strong>Internet of Things:</strong> Arduino, ESP32, and C++</li>
             </ul>
           </div>
 
@@ -132,10 +135,18 @@ function App() {
               <tbody>
                 <tr>
                   <td>
+                    <a href="https://github.com/Zentoboo/Zentoboo.github.io">personal website</a>
+                  </td>
+                  <td>Web Development</td>
+                  <td>Vite, React</td>
+                  <td>Wikipedia styled personal portfolio website</td>
+                </tr>
+                <tr>
+                  <td>
                     <a href="https://github.com/Zentoboo/dck">dck</a>
                   </td>
                   <td>Desktop Development, FYP</td>
-                  <td>Electron, TypeScript, React</td>
+                  <td>Electron, Vite, TypeScript, React</td>
                   <td>AI-enhanced desktop flashcard application for spaced repetition learning</td>
                 </tr>
                 <tr>
@@ -143,7 +154,7 @@ function App() {
                     <a href="https://github.com/Zentoboo/gadpa-debate">gadpa-debate</a> <sup>[deprecated]</sup>
                   </td>
                   <td>Web Development</td>
-                  <td>.NET, React.js, MSSQL, Azure, Grok AI API</td>
+                  <td>.NET, Vite, React.js, MSSQL, Azure, Grok AI API</td>
                   <td>Debate management platform with real-time features (formerly deployed at gadpa.live)</td>
                 </tr>
                 <tr>
@@ -204,12 +215,33 @@ function App() {
             </p>
           </div>
 
+          {/* Organizations */}
+          <div id="organizations" className="wiki-section">
+            <h2>Organizational Experience</h2>
+            <h3>Central Data & Information Bureau Member of Persatuan Pelajar Indonesia Malaysia (PPIM)</h3>
+            <p>
+              Christopher designed and implemented a MySQL database schema with integrated PHP backend and frontend for
+              PPIM-Portal (an admin portal for PPIM members), supporting structured documentation and management of Indonesian students in Malaysia.
+            </p>
+            <h3>Garuda Dwi Pantara (GADPA) - Indonesian Student Association of XMUM</h3>
+            <p>
+              Christopher held multiple leadership positions in GADPA.
+            </p>
+            <p>
+              in 2023-2024, he became the head of Event Planning (2023-2024), where he led a team to organize various 100+ participant events such as Chrisanta, GADPA Election 24/25, Makrab, and more.
+            </p>
+            <p>
+              in 2024-2025, he held two positions. First as a Supervisory Board Member for Event Planning, acting as a mentor for the new event planning team, providing guidance regarding how to properly plan events and how to ensure better member engagement and doing their allocated tasks.
+              Second as Head of Secretary, where he managed documentation, communication within and outside the organization, and sometimes utilise his software engineering skills such as auto mail, data analysis, and even building a debate website for GADPA 2025 Congress.
+            </p>
+          </div>
+
           {/* Future Plans Section */}
           <div className="wiki-section">
             <h2>Future Plans in IT</h2>
             <p>
               After his very last examination period, Christopher plans to focus on web development, particularly
-              with .NET and React, while exploring cloud infrastructure services including Azure and AWS.
+              with .NET and React, while continue exploring cloud infrastructure services including Azure and AWS.
               He is considering expanding his backend knowledge to include Node.js and exploring NoSQL databases
               such as Redis.
             </p>
