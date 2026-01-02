@@ -1,0 +1,260 @@
+/* Wikipedia-style CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #202122;
+  background: #f8f9fa;
+}
+
+.wikipedia-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+}
+
+/* Header */
+.wiki-header {
+  border-bottom: 1px solid #a2a9b1;
+  padding: 0.5em 1em;
+  background: white;
+}
+
+.wiki-title {
+  font-family: "Linux Libertine", Georgia, Times, serif;
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0.5em 0;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 0.25em;
+}
+
+.wiki-subtitle {
+  font-size: 0.875em;
+  color: #54595d;
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+/* Social Links */
+.wiki-social-links {
+  font-size: 0.9em;
+  margin: 0.75em 0;
+  padding: 0.5em 0;
+  border-top: 1px solid #eaecf0;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.wiki-social-links a {
+  color: #0645ad;
+  text-decoration: none;
+  padding: 0 0.25em;
+}
+
+.wiki-social-links a:hover {
+  text-decoration: underline;
+}
+
+.wiki-social-links .separator {
+  color: #a2a9b1;
+  margin: 0 0.5em;
+}
+
+.wiki-nav {
+  font-size: 0.875em;
+  margin-bottom: 1em;
+}
+
+.wiki-nav a {
+  color: #0645ad;
+  text-decoration: none;
+  margin-right: 1em;
+}
+
+.wiki-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+.wiki-content {
+  display: flex;
+  gap: 2em;
+  padding: 1em;
+}
+
+.wiki-main {
+  flex: 1;
+  font-family: Georgia, serif;
+  font-size: 0.95em;
+}
+
+.wiki-main p {
+  margin-bottom: 1em;
+  line-height: 1.65;
+}
+
+.wiki-main a {
+  color: #0645ad;
+  text-decoration: none;
+}
+
+.wiki-main a:visited {
+  color: #0b0080;
+}
+
+.wiki-main a:hover {
+  text-decoration: underline;
+}
+
+/* Infobox */
+.infobox {
+  float: right;
+  margin: 0 0 1em 1em;
+  padding: 0;
+  width: 280px;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+  font-size: 0.875em;
+}
+
+.infobox-header {
+  background: #d3d3d3;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.infobox-image {
+  width: 100%;
+  border-bottom: 1px solid #a2a9b1;
+}
+
+.infobox-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.infobox-caption {
+  text-align: center;
+  padding: 0.5em;
+  background: #f8f9fa;
+  font-size: 0.9em;
+}
+
+.infobox-content {
+  padding: 0;
+}
+
+.infobox-row {
+  display: flex;
+  border-top: 1px solid #a2a9b1;
+}
+
+.infobox-label {
+  font-weight: bold;
+  padding: 0.5em;
+  background: #f8f9fa;
+  width: 35%;
+  border-right: 1px solid #a2a9b1;
+}
+
+.infobox-data {
+  padding: 0.5em;
+  width: 65%;
+}
+
+.infobox-data a {
+  color: #0645ad;
+  text-decoration: none;
+}
+
+.infobox-data a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+.wiki-section {
+  margin: 2em 0;
+}
+
+.wiki-section h2 {
+  font-family: "Linux Libertine", Georgia, Times, serif;
+  font-size: 1.5em;
+  font-weight: normal;
+  border-bottom: 1px solid #a2a9b1;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.25em;
+}
+
+.wiki-section h3 {
+  font-family: "Linux Libertine", Georgia, Times, serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 1.5em 0 0.5em 0;
+}
+
+/* Tables */
+.wiki-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+}
+
+.wiki-table th {
+  background: #eaecf0;
+  padding: 0.5em;
+  text-align: left;
+  font-weight: bold;
+  border: 1px solid #a2a9b1;
+}
+
+.wiki-table td {
+  padding: 0.5em;
+  border: 1px solid #a2a9b1;
+  vertical-align: top;
+}
+
+.wiki-table tr:nth-child(even) {
+  background: white;
+}
+
+.wiki-table a {
+  color: #0645ad;
+  text-decoration: none;
+}
+
+.wiki-table a:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+.wiki-main ul {
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+
+.wiki-main li {
+  margin-bottom: 0.5em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .infobox {
+    float: none;
+    margin: 1em auto;
+  }
+  
+  .wiki-content {
+    flex-direction: column;
+  }
+}
