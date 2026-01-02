@@ -32,7 +32,7 @@ function App() {
             <div className="infobox-header">Bertrand Christopher</div>
             <div className="infobox-image">
               <img
-                src="public\assets\profile-picture.jpg"
+                src="/assets/profile-picture.jpg"
                 alt="Bertrand Christopher"
               />
             </div>
@@ -73,7 +73,7 @@ function App() {
 
           {/* Main content */}
           <p>
-            <strong>Bertrand Christopher</strong> (born 2003) is an Indonesian software engineering student
+            <strong>Bertrand Christopher</strong> (born 2004) is an Indonesian software engineering student
             currently pursuing his degree at Xiamen University Malaysia. In the XMUM Indonesian community, he is best known for developing
             <a href="https://github.com/Zentoboo/gadpa-debate">gadpa.live</a> debate web application for GADPA 2025 Congress, winning
             first place in the XMUM CodeCraft 2023 competitive programming competition, and being a strong futsal goalkeeper.
