@@ -201,6 +201,43 @@ body {
   margin: 1.5em 0 0.5em 0;
 }
 
+/* Column Visibility Controls */
+.column-controls {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.75em 1em;
+  background: #eaecf0;
+  border: 1px solid #a2a9b1;
+  border-radius: 3px;
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+}
+
+.column-controls-label {
+  font-weight: bold;
+  color: #202122;
+  margin-right: 0.5em;
+}
+
+.column-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  cursor: pointer;
+  color: #202122;
+}
+
+.column-checkbox input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.column-checkbox:hover {
+  color: #0645ad;
+}
+
 /* Tables */
 .wiki-table {
   width: 100%;
@@ -247,6 +284,78 @@ body {
   margin-bottom: 0.5em;
 }
 
+/* Project Gallery (below table) */
+.project-gallery {
+  margin: 2em 0;
+  padding: 1em;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+}
+
+.project-gallery h3 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: #202122;
+  font-size: 1.1em;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 0.5em;
+}
+
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75em;
+}
+
+.project-image-slot {
+  border: 1px solid #a2a9b1;
+  background: white;
+  padding: 0.5em;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-image-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Awards Gallery - Side by Side Layout */
+.awards-gallery {
+  display: flex;
+  gap: 1em;
+  margin: 1em 0 2em 0;
+  flex-wrap: wrap;
+}
+
+/* Competition Awards Image Container */
+.award-image-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+  border: 1px solid #a2a9b1;
+  padding: 0.5em;
+  background: #f8f9fa;
+}
+
+.award-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.award-image-caption {
+  text-align: center;
+  font-size: 0.85em;
+  margin-top: 0.5em;
+  color: #54595d;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .infobox {
@@ -256,5 +365,32 @@ body {
   
   .wiki-content {
     flex-direction: column;
+  }
+
+  .awards-gallery {
+    flex-direction: column;
+  }
+
+  .award-image-container {
+    max-width: 100%;
+  }
+
+  .project-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .column-controls {
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-images {
+    grid-template-columns: 1fr;
+  }
+
+  .column-controls {
+    font-size: 0.85em;
   }
 }

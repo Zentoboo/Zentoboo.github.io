@@ -1,6 +1,23 @@
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  // State to manage column visibility
+  const [columnVisibility, setColumnVisibility] = useState({
+    category: true,
+    technologies: true,
+    description: true,
+    actions: true
+  });
+
+  // Toggle column visibility
+  const toggleColumn = (columnName) => {
+    setColumnVisibility(prev => ({
+      ...prev,
+      [columnName]: !prev[columnName]
+    }));
+  };
+
   return (
     <div className="wikipedia-container">
       <div className="wiki-header">
@@ -21,7 +38,7 @@ function App() {
           <span className="separator">-</span>
           <a href="mailto:c.bertrandtjo@gmail.com">c.bertrandtjo@gmail.com</a>
         </div>
-        <div className="wiki-subtitle">Gonna make it more in the future interactive bear with me :D<br/>
+        <div className="wiki-subtitle">Gonna make pages to better explain specific projects :D<br/>
         Gonna add more "evidence" in the form of images, videos, etc.</div>
       </div>
 
@@ -122,96 +139,204 @@ function App() {
               projects available on GitHub:
             </p>
 
+            {/* Column Visibility Controls */}
+            <div className="column-controls">
+              <span className="column-controls-label">Show columns:</span>
+              <label className="column-checkbox">
+                <input
+                  type="checkbox"
+                  checked={columnVisibility.category}
+                  onChange={() => toggleColumn('category')}
+                />
+                Category
+              </label>
+              <label className="column-checkbox">
+                <input
+                  type="checkbox"
+                  checked={columnVisibility.technologies}
+                  onChange={() => toggleColumn('technologies')}
+                />
+                Technologies
+              </label>
+              <label className="column-checkbox">
+                <input
+                  type="checkbox"
+                  checked={columnVisibility.description}
+                  onChange={() => toggleColumn('description')}
+                />
+                Description
+              </label>
+              <label className="column-checkbox">
+                <input
+                  type="checkbox"
+                  checked={columnVisibility.actions}
+                  onChange={() => toggleColumn('actions')}
+                />
+                Actions
+              </label>
+            </div>
+
             <table className="wiki-table">
               <thead>
                 <tr>
                   <th>Title</th>
-                  <th>Category</th>
-                  <th>Technologies</th>
-                  <th>Description</th>
+                  {columnVisibility.category && <th>Category</th>}
+                  {columnVisibility.technologies && <th>Technologies</th>}
+                  {columnVisibility.description && <th>Description</th>}
+                  {columnVisibility.actions && <th>Actions</th>}
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    <a href="https://github.com/Zentoboo/Zentoboo.github.io">personal website</a>
-                  </td>
-                  <td>Web Development</td>
-                  <td>Vite, React</td>
-                  <td>Wikipedia styled personal portfolio website</td>
+                  <td>personal website</td>
+                  {columnVisibility.category && <td>Web Development</td>}
+                  {columnVisibility.technologies && <td>Vite, React</td>}
+                  {columnVisibility.description && <td>Wikipedia styled personal portfolio website</td>}
+                  {columnVisibility.actions && (
+                    <td>
+                      <a href="https://github.com/Zentoboo/Zentoboo.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </td>
+                  )}
                 </tr>
                 <tr>
-                  <td>
-                    <a href="https://github.com/Zentoboo/dck">dck</a>
-                  </td>
-                  <td>Desktop Development, FYP</td>
-                  <td>Electron, Vite, TypeScript, React</td>
-                  <td>AI-enhanced desktop flashcard application for spaced repetition learning</td>
+                  <td>dck</td>
+                  {columnVisibility.category && <td>Desktop Development, FYP</td>}
+                  {columnVisibility.technologies && <td>Electron, Vite, TypeScript, React, Grok AI API</td>}
+                  {columnVisibility.description && <td>AI-enhanced desktop flashcard application for spaced repetition learning</td>}
+                  {columnVisibility.actions && (
+                    <td>
+                      <a href="https://github.com/Zentoboo/dck" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </td>
+                  )}
                 </tr>
                 <tr>
-                  <td>
-                    <a href="https://github.com/Zentoboo/gadpa-debate">gadpa-debate</a> <sup>[deprecated]</sup>
-                  </td>
-                  <td>Web Development</td>
-                  <td>.NET, Vite, React.js, MSSQL, Azure, Grok AI API</td>
-                  <td>Debate management platform with real-time features (formerly deployed at gadpa.live)</td>
+                  <td>gadpa-debate <sup>[deprecated]</sup></td>
+                  {columnVisibility.category && <td>Web Development</td>}
+                  {columnVisibility.technologies && <td>.NET, Vite, React.js, MSSQL, Azure</td>}
+                  {columnVisibility.description && <td>Debate management platform with real-time features (formerly deployed at gadpa.live)</td>}
+                  {columnVisibility.actions && (
+                    <td>
+                      <a href="https://github.com/Zentoboo/gadpa-debate" target="_blank" rel="noopener noreferrer">GitHub</a>
+                      <br/>
+                      <a href="https://youtu.be/L7we37LRnig" target="_blank" rel="noopener noreferrer">DemoVid</a>
+                    </td>
+                  )}
                 </tr>
                 <tr>
-                  <td>
-                    <a href="https://github.com/Zentoboo/Syncro">Syncro</a>
-                  </td>
-                  <td>Web Development (Group)</td>
-                  <td>.NET, React.js, Azure SQL Database</td>
-                  <td>Course project demonstrating full-stack development capabilities</td>
+                  <td>Syncro</td>
+                  {columnVisibility.category && <td>Web Development (Group)</td>}
+                  {columnVisibility.technologies && <td>.NET, React.js, Azure SQL Database</td>}
+                  {columnVisibility.description && <td>Course project demonstrating full-stack development capabilities</td>}
+                  {columnVisibility.actions && (
+                    <td>
+                      <a href="https://github.com/Zentoboo/Syncro" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </td>
+                  )}
                 </tr>
                 <tr>
-                  <td>
-                    <a href="https://github.com/Zentoboo/SWE309-BriteShop">BriteShop</a>
-                  </td>
-                  <td>Web Development</td>
-                  <td>PHP, MySQL, AWS (EC2, S3, RDS), Linux Ubuntu</td>
-                  <td>E-commerce platform deployed on AWS infrastructure</td>
+                  <td>BriteShop</td>
+                  {columnVisibility.category && <td>Web Development</td>}
+                  {columnVisibility.technologies && <td>PHP, MySQL, AWS (EC2, S3, RDS), Linux Ubuntu</td>}
+                  {columnVisibility.description && <td>E-commerce platform deployed on AWS infrastructure</td>}
+                  {columnVisibility.actions && (
+                    <td>
+                      <a href="https://github.com/Zentoboo/SWE309-BriteShop" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </td>
+                  )}
                 </tr>
                 <tr>
-                  <td>
-                    <a href="https://github.com/Zentoboo/MainlandUS-MaizeLandSuitability">Mainland US Maize Land Suitability</a>
-                  </td>
-                  <td>Data Mining (Group)</td>
-                  <td>Python, PySpark, PRISM Climate Data</td>
-                  <td>Agricultural land suitability analysis using machine learning</td>
+                  <td>Mainland US Maize Land Suitability</td>
+                  {columnVisibility.category && <td>Data Mining (Group)</td>}
+                  {columnVisibility.technologies && <td>Python, PySpark, PRISM Climate Data</td>}
+                  {columnVisibility.description && <td>Agricultural land suitability analysis using machine learning</td>}
+                  {columnVisibility.actions && (
+                    <td>
+                      <a href="https://github.com/Zentoboo/MainlandUS-MaizeLandSuitability" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </td>
+                  )}
                 </tr>
                 <tr>
-                  <td>
-                    <a href="https://github.com/Zentoboo/SWE401-HomeTutorMobileApp">HomeTutor Mobile App</a>
-                  </td>
-                  <td>Mobile Development</td>
-                  <td>Kotlin, Android Studio</td>
-                  <td>Android application for tutoring services</td>
+                  <td>HomeTutor Mobile App</td>
+                  {columnVisibility.category && <td>Mobile Development</td>}
+                  {columnVisibility.technologies && <td>Kotlin, Android Studio</td>}
+                  {columnVisibility.description && <td>Android application for tutoring services</td>}
+                  {columnVisibility.actions && (
+                    <td>
+                      <a href="https://github.com/Zentoboo/SWE401-HomeTutorMobileApp" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </td>
+                  )}
                 </tr>
                 <tr>
-                  <td>
-                    <a href="https://github.com/Zentoboo/BetterDino">BetterDino</a>
-                  </td>
-                  <td>Game Development (Group)</td>
-                  <td>Python, PyGame</td>
-                  <td>Enhanced version of the classic dinosaur game</td>
+                  <td>BetterDino</td>
+                  {columnVisibility.category && <td>Game Development (Group)</td>}
+                  {columnVisibility.technologies && <td>Python, PyGame</td>}
+                  {columnVisibility.description && <td>Enhanced version of the classic dinosaur game</td>}
+                  {columnVisibility.actions && (
+                    <td>
+                      <a href="https://github.com/Zentoboo/BetterDino" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </td>
+                  )}
                 </tr>
               </tbody>
             </table>
+
+            {/* Project Screenshots
+            <div className="project-gallery">
+              <h3>personal website</h3>
+              <div className="project-images">
+                <div className="project-image-slot">
+                  <img src="./assets/projects/personal-website-1.png" alt="Personal Website Screenshot 1" />
+                </div>
+                <div className="project-image-slot">
+                  <img src="./assets/projects/personal-website-2.png" alt="Personal Website Screenshot 2" />
+                </div>
+                <div className="project-image-slot">
+                  <img src="./assets/projects/personal-website-3.png" alt="Personal Website Screenshot 3" />
+                </div>
+                <div className="project-image-slot">
+                  <img src="./assets/projects/personal-website-4.png" alt="Personal Website Screenshot 4" />
+                </div>
+              </div>
+            </div> */}
           </div>
 
           {/* Competitions Section */}
           <div id="competitions" className="wiki-section">
             <h2>Competitions & Awards</h2>
+            
             <h3>XMUM CodeCraft 2023</h3>
             <p>
               Christopher won <strong>first place</strong> in the XMUM CodeCraft 2023 competitive programming
               competition with his group of friends, demonstrating strong algorithmic problem-solving skills using C++.
             </p>
+            
+
             <h3>Dean's List 2025/04</h3>
             <p>
               Christopher received recognition on the Dean's List for his outstanding academic performance in the 2025/04 semester.
             </p>
+            
+            {/* Awards Gallery - Side by Side */}
+            <div className="awards-gallery">
+              <div className="award-image-container">
+                <img 
+                  src="./assets/codecraft-2023.png" 
+                  alt="XMUM CodeCraft 2023 Certificate"
+                />
+                <div className="award-image-caption">
+                  XMUM CodeCraft 2023 First Place Certificate
+                </div>
+              </div>
+              <div className="award-image-container">
+                <img 
+                  src="./assets/deans-list-2025.jpeg" 
+                  alt="Dean's List 2025/04 Certificate"
+                />
+                <div className="award-image-caption">
+                  Dean's List Recognition 2025/04
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Organizations */}
@@ -260,7 +385,7 @@ function App() {
               Heavily inspired by <a href="https://wikipedia.org">Wikipedia</a>'s visual styling and adopts its third-person narrative.
             </p>
             <p style={{ fontSize: '0.85em', color: '#54595d' }}>
-              This page was last edited on 2 January 2026
+              This page was last edited on 5 January 2026
             </p>
           </div>
         </div>
