@@ -1,397 +1,357 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from 'react';
+import { Github, Linkedin, Mail, Youtube } from 'lucide-react';
 
-function App() {
-  // State to manage column visibility
-  const [columnVisibility, setColumnVisibility] = useState({
-    category: true,
-    technologies: true,
-    description: true,
-    actions: true
-  });
+export default function Portfolio() {
+  const [activeTab, setActiveTab] = useState('club');
 
-  // Toggle column visibility
-  const toggleColumn = (columnName) => {
-    setColumnVisibility(prev => ({
-      ...prev,
-      [columnName]: !prev[columnName]
-    }));
-  };
+  const clubExperience = [
+    {
+      company: 'Persatuan Pelajar Indonesia Malaysia (PPIM)',
+      role: 'Central Data & Information Bureau Member',
+      period: '2025 - 2026',
+      link: 'https://www.instagram.com/ppimalaysia/',
+      logo: './assets/ppim.png',
+      description: 'Managed data systems for the national union of Indonesian students in Malaysia.',
+      achievements: [
+        'Designed and implemented a MySQL database schema with PHP backend for PPIM-Portal.',
+        'Supported structured documentation and management for the Indonesian student community across Malaysia.'
+      ]
+    },
+    {
+      company: 'Garuda Dwi Pantara (GADPA)',
+      role: 'Head of Secretary / Supervisory Board / Head of Event Planning',
+      period: '2023 - 2025',
+      link: 'https://www.instagram.com/gadpa.xmum/',
+      logo: './assets/gadpa.png',
+      description: 'Led organizational strategy and technical implementation for the XMUM Indonesian Student Association.',
+      achievements: [
+        '2024-2025 (Head of Secretary): Built gadpa.live debate platform and automated internal documentation systems.',
+        '2024-2025 (Supervisory Board): Mentored the event planning team on member engagement and strategic execution.',
+        '2023-2024 (Head of Event Planning): Led a team to organize 100+ participant events like Chrisanta and GADPA Election.'
+      ]
+    }
+  ];
+
+  const education = [
+    {
+      school: 'Xiamen University Malaysia',
+      degree: 'Software Engineering',
+      period: '2021 - 2025',
+      link: 'https://www.xmu.edu.my/',
+      logo: './assets/Xiamen_University_logo.svg',
+      gpa: '3.76 CGPA',
+      achievements: [
+        'Dean\'s List 2025/04',
+        'First Place - XMUM CodeCraft 2023',
+        'IELTS 8.0'
+      ]
+    },
+    {
+      school: 'Xin Zhong School',
+      degree: 'High School',
+      period: '2018 - 2021',
+      link: 'https://xinzhong.sch.id/',
+      logo: './assets/xinzhongschool.png',
+      gpa: 'Average Grade: 93.81 (Knowledge), 94.61 (Practical)',
+      achievements: []
+    }
+  ];
+
+  const projects = [
+    {
+      title: 'dck - AI Flashcard App',
+      description: 'AI-enhanced desktop flashcard application for spaced repetition learning',
+      tech: ['Electron', 'TypeScript', 'React', 'Grok AI API'],
+      github: 'https://github.com/Zentoboo/dck',
+      youtubelocaldemo: 'https://youtu.be/8vpD2yrPBEQ',
+      images: ['./assets/dck-img1.png', './assets/dck-img2.png']
+    },
+    {
+      title: 'gadpa.live',
+      description: 'Debate management platform with real-time features for GADPA 2025 Congress',
+      tech: ['.NET', 'React.js', 'MSSQL', 'Azure'],
+      github: 'https://github.com/Zentoboo/gadpa-debate',
+      youtubelocaldemo: 'https://youtu.be/L7we37LRnig',
+      images: ['./assets/gadpa-live-img1.png', './assets/gadpa-live-img2.png']
+    },
+    // {
+    //   title: 'BriteShop',
+    //   description: 'E-commerce platform deployed on AWS infrastructure',
+    //   tech: ['PHP', 'MySQL', 'AWS EC2', 'S3', 'RDS'],
+    //   github: 'https://github.com/Zentoboo/SWE309-BriteShop',
+    //   images: ['https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=400&fit=crop']
+    // }
+  ];
 
   return (
-    <div className="wikipedia-container">
-      <div className="wiki-header">
-        <div className="wiki-nav">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#competitions">Competitions</a>
-          <a href="#organizations">Organizations</a>
-        </div>
-        <h1 className="wiki-title">Bertrand Christopher</h1>
-        <div className="wiki-social-links">
-          <a href="https://www.linkedin.com/in/christopher-bertrand-092a95309/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <span className="separator">-</span>
-          <a href="https://github.com/Zentoboo" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <span className="separator">-</span>
-          <a href="https://www.instagram.com/bertrand.zentoboo/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <span className="separator">-</span>
-          <a href="mailto:c.bertrandtjo@gmail.com">c.bertrandtjo@gmail.com</a>
-        </div>
-        <div className="wiki-subtitle">Gonna make pages to better explain specific projects :D<br/>
-        Gonna add more "evidence" in the form of images, videos, etc.</div>
-      </div>
-
-      <div className="wiki-content">
-        <div className="wiki-main">
-          {/* Infobox */}
-          <div className="infobox">
-            <div className="infobox-header">Bertrand Christopher</div>
-            <div className="infobox-image">
-              <img
-                src="./assets/profile-picture.jpg"
-                alt="Bertrand Christopher"
-              />
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="border-b border-gray-200 sticky top-0 bg-white/90 backdrop-blur-sm z-50">
+        <div className="max-w-5xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="text-xl font-semibold">Bertrand Christopher</div>
+            <div className="text-m font-bold text-gray-400">under construction... gonna continue after exam T.T</div>
+            <div className="flex gap-6 text-sm">
+              <a href="#home" className="hover:text-gray-600 transition">home</a>
+              <a href="#projects" className="hover:text-gray-600 transition">projects</a>
             </div>
-            <div className="infobox-caption">Software Engineering Student</div>
-            <div className="infobox-content">
-              <div className="infobox-row">
-                <div className="infobox-label">Age</div>
-                <div className="infobox-data">21 years old</div>
-              </div>
-              <div className="infobox-row">
-                <div className="infobox-label">Nationality</div>
-                <div className="infobox-data">Indonesian</div>
-              </div>
-              <div className="infobox-row">
-                <div className="infobox-label">Education</div>
-                <div className="infobox-data">
-                  <a href="https://www.xmu.edu.my/">Xiamen University Malaysia</a><br />
-                  4th Year Student (3.76 CGPA)<br/>
-                  <a href="https://xinzhong.sch.id/">Xin Zhong School</a><br />
-                  Average Grade 10-12 (knowledge, practical): 93.81, 94.61
-                </div>
-              </div>
-              <div className="infobox-row">
-                <div className="infobox-label">Languages</div>
-                <div className="infobox-data">
-                  English (IELTS 8.0)<br />
-                  Indonesian (Native)
-                </div>
-              </div>
-              <div className="infobox-row">
-                <div className="infobox-label">Known for</div>
-                <div className="infobox-data">
-                  Desktop Development<br />
-                  Web Development<br />
-                  Competitive Programming
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Main content */}
-          <p>
-            <strong>Bertrand Christopher</strong> (born 2004) is an Indonesian software engineering student
-            currently pursuing his degree at Xiamen University Malaysia (XMUM). In the XMUM Indonesian community, he is best known for developing <a href="https://github.com/Zentoboo/gadpa-debate">gadpa.live</a> debate web application for GADPA 2025 Congress, winning
-            first place in the XMUM CodeCraft 2023 competitive programming competition, and being a strong futsal goalkeeper.
-          </p>
-
-          <p>
-            Christopher began his programming journey with C++, which led to his victory in the XMUM held competitive
-            programming competition (CodeCraft 2023). He has since shifted his focus and diversified his skillset across various domains including
-            desktop development, web development, mobile applications, IoT and data mining. He is currently
-            seeking internship opportunities to further develop his professional experience.
-          </p>
-
-          {/* Experience Section */}
-          <div id="experience" className="wiki-section">
-            <h2>Experience</h2>
-            <h3>Academic Background</h3>
-            <p>
-              Christopher is currently completing his fourth year at Xiamen University Malaysia with
-              a CGPA of 3.76. His academic focus spans software engineering principles, web development,
-              mobile applications, and data science.
-            </p>
-
-            <h3>Technical Expertise</h3>
-            <p>
-              His first programming language was C++, learned through competitive programming, which led him to win first place in the
-              XMUM CodeCraft 2023 competitive programming competition. Since then, he has expanded
-              his knowledge to other fields dabbling in various programming languages and frameworks:
-            </p>
-            <ul>
-              <li><strong>Web Development:</strong> .NET Core, React.js, PHP, with experience deploying to Azure and AWS</li>
-              <li><strong>Desktop Development:</strong> Electron with TypeScript and React</li>
-              <li><strong>Mobile Development:</strong> Android development with Kotlin</li>
-              <li><strong>Data Science:</strong> Python, PySpark, machine learning applications</li>
-              <li><strong>Cloud Infrastructure:</strong> Azure (SQL Database, App Services) and AWS (EC2, S3, RDS)</li>
-              <li><strong>Internet of Things:</strong> Arduino, ESP32, and C++</li>
-            </ul>
-          </div>
-
-          {/* Projects Section */}
-          <div id="projects" className="wiki-section">
-            <h2>Notable Projects</h2>
-            <p>
-              Christopher has developed various projects across different domains, demonstrating proficiency
-              in multiple programming languages and frameworks. The following table lists his most presentable
-              projects available on GitHub:
-            </p>
-
-            {/* Column Visibility Controls */}
-            <div className="column-controls">
-              <span className="column-controls-label">Show columns:</span>
-              <label className="column-checkbox">
-                <input
-                  type="checkbox"
-                  checked={columnVisibility.category}
-                  onChange={() => toggleColumn('category')}
-                />
-                Category
-              </label>
-              <label className="column-checkbox">
-                <input
-                  type="checkbox"
-                  checked={columnVisibility.technologies}
-                  onChange={() => toggleColumn('technologies')}
-                />
-                Technologies
-              </label>
-              <label className="column-checkbox">
-                <input
-                  type="checkbox"
-                  checked={columnVisibility.description}
-                  onChange={() => toggleColumn('description')}
-                />
-                Description
-              </label>
-              <label className="column-checkbox">
-                <input
-                  type="checkbox"
-                  checked={columnVisibility.actions}
-                  onChange={() => toggleColumn('actions')}
-                />
-                Actions
-              </label>
-            </div>
-
-            <table className="wiki-table">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  {columnVisibility.category && <th>Category</th>}
-                  {columnVisibility.technologies && <th>Technologies</th>}
-                  {columnVisibility.description && <th>Description</th>}
-                  {columnVisibility.actions && <th>Actions</th>}
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>personal website</td>
-                  {columnVisibility.category && <td>Web Development</td>}
-                  {columnVisibility.technologies && <td>Vite, React</td>}
-                  {columnVisibility.description && <td>Wikipedia styled personal portfolio website</td>}
-                  {columnVisibility.actions && (
-                    <td>
-                      <a href="https://github.com/Zentoboo/Zentoboo.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  <td>dck</td>
-                  {columnVisibility.category && <td>Desktop Development, FYP</td>}
-                  {columnVisibility.technologies && <td>Electron, Vite, TypeScript, React, Grok AI API</td>}
-                  {columnVisibility.description && <td>AI-enhanced desktop flashcard application for spaced repetition learning</td>}
-                  {columnVisibility.actions && (
-                    <td>
-                      <a href="https://github.com/Zentoboo/dck" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  <td>gadpa-debate <sup>[deprecated]</sup></td>
-                  {columnVisibility.category && <td>Web Development</td>}
-                  {columnVisibility.technologies && <td>.NET, Vite, React.js, MSSQL, Azure</td>}
-                  {columnVisibility.description && <td>Debate management platform with real-time features (formerly deployed at gadpa.live)</td>}
-                  {columnVisibility.actions && (
-                    <td>
-                      <a href="https://github.com/Zentoboo/gadpa-debate" target="_blank" rel="noopener noreferrer">GitHub</a>
-                      <br/>
-                      <a href="https://youtu.be/L7we37LRnig" target="_blank" rel="noopener noreferrer">DemoVid</a>
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  <td>Syncro</td>
-                  {columnVisibility.category && <td>Web Development (Group)</td>}
-                  {columnVisibility.technologies && <td>.NET, React.js, Azure SQL Database</td>}
-                  {columnVisibility.description && <td>Course project demonstrating full-stack development capabilities</td>}
-                  {columnVisibility.actions && (
-                    <td>
-                      <a href="https://github.com/Zentoboo/Syncro" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  <td>BriteShop</td>
-                  {columnVisibility.category && <td>Web Development</td>}
-                  {columnVisibility.technologies && <td>PHP, MySQL, AWS (EC2, S3, RDS), Linux Ubuntu</td>}
-                  {columnVisibility.description && <td>E-commerce platform deployed on AWS infrastructure</td>}
-                  {columnVisibility.actions && (
-                    <td>
-                      <a href="https://github.com/Zentoboo/SWE309-BriteShop" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  <td>Mainland US Maize Land Suitability</td>
-                  {columnVisibility.category && <td>Data Mining (Group)</td>}
-                  {columnVisibility.technologies && <td>Python, PySpark, PRISM Climate Data</td>}
-                  {columnVisibility.description && <td>Agricultural land suitability analysis using machine learning</td>}
-                  {columnVisibility.actions && (
-                    <td>
-                      <a href="https://github.com/Zentoboo/MainlandUS-MaizeLandSuitability" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  <td>HomeTutor Mobile App</td>
-                  {columnVisibility.category && <td>Mobile Development</td>}
-                  {columnVisibility.technologies && <td>Kotlin, Android Studio</td>}
-                  {columnVisibility.description && <td>Android application for tutoring services</td>}
-                  {columnVisibility.actions && (
-                    <td>
-                      <a href="https://github.com/Zentoboo/SWE401-HomeTutorMobileApp" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </td>
-                  )}
-                </tr>
-                <tr>
-                  <td>BetterDino</td>
-                  {columnVisibility.category && <td>Game Development (Group)</td>}
-                  {columnVisibility.technologies && <td>Python, PyGame</td>}
-                  {columnVisibility.description && <td>Enhanced version of the classic dinosaur game</td>}
-                  {columnVisibility.actions && (
-                    <td>
-                      <a href="https://github.com/Zentoboo/BetterDino" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </td>
-                  )}
-                </tr>
-              </tbody>
-            </table>
-
-            {/* Project Screenshots
-            <div className="project-gallery">
-              <h3>personal website</h3>
-              <div className="project-images">
-                <div className="project-image-slot">
-                  <img src="./assets/projects/personal-website-1.png" alt="Personal Website Screenshot 1" />
-                </div>
-                <div className="project-image-slot">
-                  <img src="./assets/projects/personal-website-2.png" alt="Personal Website Screenshot 2" />
-                </div>
-                <div className="project-image-slot">
-                  <img src="./assets/projects/personal-website-3.png" alt="Personal Website Screenshot 3" />
-                </div>
-                <div className="project-image-slot">
-                  <img src="./assets/projects/personal-website-4.png" alt="Personal Website Screenshot 4" />
-                </div>
-              </div>
-            </div> */}
-          </div>
-
-          {/* Competitions Section */}
-          <div id="competitions" className="wiki-section">
-            <h2>Competitions & Awards</h2>
-            
-            <h3>XMUM CodeCraft 2023</h3>
-            <p>
-              Christopher won <strong>first place</strong> in the XMUM CodeCraft 2023 competitive programming
-              competition with his group of friends, demonstrating strong algorithmic problem-solving skills using C++.
-            </p>
-            
-
-            <h3>Dean's List 2025/04</h3>
-            <p>
-              Christopher received recognition on the Dean's List for his outstanding academic performance in the 2025/04 semester.
-            </p>
-            
-            {/* Awards Gallery - Side by Side */}
-            <div className="awards-gallery">
-              <div className="award-image-container">
-                <img 
-                  src="./assets/codecraft-2023.png" 
-                  alt="XMUM CodeCraft 2023 Certificate"
-                />
-                <div className="award-image-caption">
-                  XMUM CodeCraft 2023 First Place Certificate
-                </div>
-              </div>
-              <div className="award-image-container">
-                <img 
-                  src="./assets/deans-list-2025.jpeg" 
-                  alt="Dean's List 2025/04 Certificate"
-                />
-                <div className="award-image-caption">
-                  Dean's List Recognition 2025/04
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Organizations */}
-          <div id="organizations" className="wiki-section">
-            <h2>Organizational Experience</h2>
-            <h3>Central Data & Information Bureau Member of Persatuan Pelajar Indonesia Malaysia (PPIM)</h3>
-            <p>
-              Christopher designed and implemented a MySQL database schema with integrated PHP backend and frontend for
-              PPIM-Portal (an admin portal for PPIM members), supporting structured documentation and management of Indonesian students in Malaysia.
-            </p>
-            <h3>Garuda Dwi Pantara (GADPA) - Indonesian Student Association of XMUM</h3>
-            <p>
-              Christopher held multiple leadership positions in GADPA.
-            </p>
-            <p>
-              in 2023-2024, he became the head of Event Planning (2023-2024), where he led a team to organize various 100+ participant events such as Chrisanta, GADPA Election 24/25, Makrab, and more.
-            </p>
-            <p>
-              in 2024-2025, he held two positions. First as a Supervisory Board Member for Event Planning, acting as a mentor for the new event planning team, providing guidance regarding how to properly plan events and how to ensure better member engagement and doing their allocated tasks.
-              Second as Head of Secretary, where he managed documentation, communication within and outside the organization, and sometimes utilise his software engineering skills such as auto mail, data analysis, and even building a debate website for GADPA 2025 Congress.
-            </p>
-          </div>
-
-          {/* Future Plans Section */}
-          <div className="wiki-section">
-            <h2>Future Plans in IT</h2>
-            <p>
-              After his very last examination period, Christopher plans to focus on web development, particularly
-              with .NET and React, while continue exploring cloud infrastructure services including Azure and AWS.
-              He is considering expanding his backend knowledge to include Node.js and exploring NoSQL databases
-              such as Redis.
-            </p>
-            <p>
-              He aims to gain practical experience with system design and distributed systems in future projects.
-              Christopher is actively seeking internship opportunities and is willing to adapt his focus based on
-              industry requirements, with additional interest in IoT development.
-            </p>
-            <p>
-              However, he remains open to explore other areas of software development as this initial internship may shape his future career path.
-            </p>
-          </div>
-
-          {/* Footer */}
-          <div className="wiki-section" style={{ marginTop: '3em', paddingTop: '1em', borderTop: '1px solid #a2a9b1' }}>
-            <p style={{ fontSize: '0.85em', color: '#54595d' }}>
-              Heavily inspired by <a href="https://wikipedia.org">Wikipedia</a>'s visual styling and adopts its third-person narrative.
-            </p>
-            <p style={{ fontSize: '0.85em', color: '#54595d' }}>
-              This page was last edited on 5 January 2026
-            </p>
           </div>
         </div>
-      </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="max-w-5xl mx-auto px-6 py-16">
+        <div className="flex flex-col md:flex-row gap-12 items-start">
+          {/* Profile Photo */}
+          <div className="w-full md:w-64 flex-shrink-0">
+            <img
+              src="./assets/profile-picture.jpg"
+              alt="Bertrand Christopher"
+              className="w-full aspect-square object-cover rounded-lg shadow-lg"
+            />
+          </div>
+
+          {/* Hero Content */}
+          <div className="flex-1">
+            <h1 className="text-5xl font-bold mb-4">hi bertrand here. 👋</h1>
+            <p className="text-xl text-gray-600 mb-6">
+              21yo software engineering student from Indonesia 🇮🇩
+            </p>
+            <p className="text-gray-700 mb-8 leading-relaxed">
+              C++ by competition, full-stack by passion. I build and deploy the lot.
+              Currently seeking internship opportunities to expand my professional experience.
+            </p>
+
+            <div className="flex gap-4 mb-8">
+              <a
+                href="https://linkedin.com/in/christopher-bertrand-092a95309"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm hover:text-gray-600 transition"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://github.com/Zentoboo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm hover:text-gray-600 transition"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href="mailto:c.bertrandtjo@gmail.com"
+                className="inline-flex items-center gap-2 text-sm hover:text-gray-600 transition"
+              >
+                <Mail size={18} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Club/Education Section */}
+      <section className="max-w-5xl mx-auto px-6 py-12">
+        <div className="border-b border-gray-200 mb-8">
+          <div className="flex gap-8">
+            <button
+              onClick={() => setActiveTab('club')}
+              className={`pb-4 px-2 text-sm font-medium transition ${
+                activeTab === 'club'
+                  ? 'border-b-2 border-gray-900 text-gray-900'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Club
+            </button>
+            <button
+              onClick={() => setActiveTab('education')}
+              className={`pb-4 px-2 text-sm font-medium transition ${
+                activeTab === 'education'
+                  ? 'border-b-2 border-gray-900 text-gray-900'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Education
+            </button>
+          </div>
+        </div>
+
+        {activeTab === 'club' && (
+          <div className="space-y-8">
+            {clubExperience.map((exp, idx) => (
+              <div key={idx} className="flex gap-6">
+                <a 
+                  href={exp.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0 hover:border-gray-400 transition"
+                >
+                  <img 
+                    src={exp.logo} 
+                    alt={`${exp.company} logo`}
+                    className="w-full h-full object-contain p-1"
+                  />
+                </a>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-lg">{exp.company}</h3>
+                  <div className="text-sm text-gray-600 mb-2">{exp.role}</div>
+                  <div className="text-sm text-gray-500 mb-4">{exp.period}</div>
+                  <p className="text-gray-700 mb-3">{exp.description}</p>
+                  <ul className="space-y-2">
+                    {exp.achievements.map((achievement, i) => (
+                      <li key={i} className="text-sm text-gray-600 flex gap-2">
+                        <span className="text-gray-400">+</span>
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === 'education' && (
+          <div className="space-y-8">
+            {education.map((edu, idx) => (
+              <div key={idx} className="flex gap-6">
+                <a 
+                  href={edu.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0 hover:border-gray-400 transition"
+                >
+                  <img 
+                    src={edu.logo} 
+                    alt={`${edu.school} logo`}
+                    className="w-full h-full object-contain p-1"
+                  />
+                </a>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-lg">{edu.school}</h3>
+                  <div className="text-sm text-gray-600 mb-2">{edu.degree}</div>
+                  <div className="text-sm text-gray-500 mb-2">{edu.period}</div>
+                  <div className="text-sm font-medium text-gray-700 mb-3">{edu.gpa}</div>
+                  {edu.achievements.length > 0 && (
+                    <ul className="space-y-1">
+                      {edu.achievements.map((achievement, i) => (
+                        <li key={i} className="text-sm text-gray-600">
+                          + {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Featured Projects */}
+      <section id="projects" className="max-w-5xl mx-auto px-6 py-12">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl font-bold">featured projects</h2>
+        </div>
+        <div className="grid gap-8">
+          {projects.map((project, idx) => (
+            <div key={idx} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition">
+              
+              {/* Image Carousel Container */}
+              <div className="relative group">
+                <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide h-auto bg-gray-100">
+                  {project.images.map((img, i) => (
+                    <img
+                      key={i}
+                      src={img}
+                      alt={`${project.title} screenshot ${i + 1}`}
+                      className="w-full h-auto object-cover flex-shrink-0 snap-center"
+                    />
+                  ))}
+                </div>
+                
+                {/* Visual Indicator for multiple images */}
+                {project.images.length > 1 && (
+                  <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition">
+                    Scroll to view {project.images.length} images →
+                  </div>
+                )}
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-4">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-gray-600 hover:text-gray-900 inline-flex items-center gap-1"
+                    >
+                      <Github size={16} /> Source
+                    </a>
+                  )}
+                  {project.youtubelocaldemo && (
+                    <a
+                      href={project.youtubelocaldemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-gray-600 hover:text-gray-900 inline-flex items-center gap-1"
+                    >
+                      <Youtube size={16} /> Local Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 mt-16">
+        <div className="max-w-5xl mx-auto px-6 py-8">
+          <div className="flex justify-between items-center text-sm text-gray-600">
+            <div className="flex gap-4">
+              <a
+                href="https://linkedin.com/in/christopher-bertrand-092a95309"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm hover:text-gray-600 transition"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://github.com/Zentoboo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm hover:text-gray-600 transition"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href="mailto:c.bertrandtjo@gmail.com"
+                className="inline-flex items-center gap-2 text-sm hover:text-gray-600 transition"
+              >
+                <Mail size={18} />
+              </a>
+            </div>
+            <div>2026 Bertrand Christopher</div>
+          </div>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
-
-export default App
