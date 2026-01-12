@@ -36,24 +36,26 @@ export default function Portfolio() {
     {
       school: 'Xiamen University Malaysia',
       degree: 'Software Engineering',
-      period: '2021 - 2025',
+      period: '2022 - 2026',
       link: 'https://www.xmu.edu.my/',
       logo: './assets/Xiamen_University_logo.svg',
       gpa: '3.76 CGPA',
       achievements: [
         'Dean\'s List 2025/04',
-        'First Place - XMUM CodeCraft 2023',
-        'IELTS 8.0'
+        'First Place - XMUM CodeCraft 2023'
       ]
     },
     {
       school: 'Xin Zhong School',
       degree: 'High School',
-      period: '2018 - 2021',
+      period: '2019 - 2022',
       link: 'https://xinzhong.sch.id/',
       logo: './assets/xinzhongschool.png',
       gpa: 'Average Grade: 93.81 (Knowledge), 94.61 (Practical)',
-      achievements: []
+      achievements: [
+        'Silver medal Southeast Asian Mathematical Olympiad 2020',
+        '2nd place Canadian Team Mathematics Contest 2021',
+        'IELTS 8.0']
     }
   ];
 
@@ -72,7 +74,7 @@ export default function Portfolio() {
       tech: ['.NET', 'React.js', 'MSSQL', 'Azure'],
       github: 'https://github.com/Zentoboo/gadpa-debate',
       youtubelocaldemo: 'https://youtu.be/L7we37LRnig',
-      images: ['./assets/gadpa-live-img1.png', './assets/gadpa-live-img2.png']
+      images: ['./assets/gadpa-live-use1.jpg','./assets/gadpa-live-img1.png', './assets/gadpa-live-img2.png',]
     },
     // {
     //   title: 'BriteShop',
