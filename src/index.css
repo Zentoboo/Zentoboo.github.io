@@ -1,1 +1,17 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+html.dark {
+  background-color: #09090b;
+  color-scheme: dark;
+}
+
+html {
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+}
