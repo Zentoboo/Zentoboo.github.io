@@ -108,7 +108,7 @@ export default function Portfolio() {
             <div className="text-xl font-semibold">Bertrand Christopher</div>
             
             <div className="flex items-center gap-6">
-              <div className="text-xs font-bold text-gray-400 hidden lg:block">
+              <div className="text-xs font-bold text-gray-400 lg:block">
                 under construction... gonna continue after exam T.T
               </div>
               <div className="flex gap-4 md:gap-6 text-sm">
@@ -142,17 +142,18 @@ export default function Portfolio() {
           <div className="flex-1">
             <h1 className="text-5xl font-bold mb-4">hi bertrand here. 👋</h1>
             <p className="text-xl text-gray-600 dark:text-zinc-400 mb-6 font-medium">
-              21yo software engineering student from Indonesia 🇮🇩
+              21yo software engineering student from Indonesia 🇮🇩 <br/>
+              looking for intern in Malaysia 🇲🇾
             </p>
             <p className="text-gray-700 dark:text-zinc-300 mb-8 leading-relaxed">
-              C++ by competition, full-stack by passion. I build and deploy the lot.
+              C++ in competition, full-stack by passion. I build and deploy the lot.
               Currently seeking internship opportunities to expand my professional experience.
             </p>
 
             <div className="flex gap-4 mb-8">
-              <a href="https://linkedin.com/..." target="_blank" className="hover:text-gray-600 dark:hover:text-zinc-400 transition"><Linkedin size={18} /></a>
-              <a href="https://github.com/..." target="_blank" className="hover:text-gray-600 dark:hover:text-zinc-400 transition"><Github size={18} /></a>
-              <a href="mailto:..." className="hover:text-gray-600 dark:hover:text-zinc-400 transition"><Mail size={18} /></a>
+              <a href="https://www.linkedin.com/in/christopher-bertrand-092a95309/" target="_blank" className="hover:text-gray-600 dark:hover:text-zinc-400 transition" rel="noopener noreferrer"><Linkedin size={18} /></a>
+              <a href="https://github.com/Zentoboo" target="_blank" className="hover:text-gray-600 dark:hover:text-zinc-400 transition" rel="noopener noreferrer"><Github size={18} /></a>
+              <a href="mailto:c.bertrandtjo@gmail.com" className="hover:text-gray-600 dark:hover:text-zinc-400 transition" rel="noopener noreferrer"><Mail size={18} /></a>
             </div>
           </div>
         </div>
@@ -225,8 +226,8 @@ export default function Portfolio() {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  {project.github && <a href={project.github} className="text-sm hover:text-blue-500 flex items-center gap-1"><Github size={16}/> Source</a>}
-                  {project.youtubelocaldemo && <a href={project.youtubelocaldemo} className="text-sm hover:text-red-500 flex items-center gap-1"><Youtube size={16}/> Demo</a>}
+                  {project.github && <a href={project.github} className="text-sm hover:text-blue-500 flex items-center gap-1" rel="noopener noreferrer"><Github size={16}/> Source</a>}
+                  {project.youtubelocaldemo && <a href={project.youtubelocaldemo} className="text-sm hover:text-red-500 flex items-center gap-1" rel="noopener noreferrer"><Youtube size={16}/> Demo</a>}
                 </div>
               </div>
             </div>
