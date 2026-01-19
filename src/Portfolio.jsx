@@ -1,5 +1,181 @@
-import { useState } from 'react';
-import { Github, Linkedin, Mail, Youtube} from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Github, Linkedin, Mail, Youtube, ChevronLeft, ChevronRight, Play, Pause, Loader2 } from 'lucide-react';
+
+// Custom hook for interval management
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
+
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+    if (delay !== null) {
+      const id = setInterval(() => savedCallback.current(), delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
+
+// ImageGallery Component
+function ImageGallery({ images }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  // Auto-scroll with pause on hover
+  useInterval(() => {
+    if (isAutoPlaying && !isPaused && images.length > 1) {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }
+  }, isAutoPlaying && !isPaused ? 4000 : null);
+
+  const goToImage = (index) => {
+    setIsLoading(true);
+    setCurrentIndex(index);
+    // Simulate loading state
+    setTimeout(() => setIsLoading(false), 200);
+  };
+
+  const goToPrevious = () => {
+    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    goToImage(newIndex);
+  };
+
+  const goToNext = () => {
+    const newIndex = (currentIndex + 1) % images.length;
+    goToImage(newIndex);
+  };
+
+  const toggleAutoPlay = () => {
+    setIsAutoPlaying(!isAutoPlaying);
+    setIsPaused(false);
+  };
+
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
+
+  // Touch handlers for mobile
+  const handleTouchStart = (e) => {
+    setTouchEnd(0);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) goToNext();
+    if (isRightSwipe) goToPrevious();
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') goToPrevious();
+      if (e.key === 'ArrowRight') goToNext();
+      if (e.key === ' ') {
+        e.preventDefault();
+        toggleAutoPlay();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentIndex, isAutoPlaying]);
+
+  if (images.length === 0) return null;
+
+  return (
+    <div className="relative group">
+      {/* Main Image Container */}
+      <div 
+        className="relative bg-gray-100 dark:bg-zinc-900 overflow-hidden"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div className="relative aspect-video">
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-zinc-900">
+              <Loader2 className="w-8 h-8 animate-spin text-gray-400" />
+            </div>
+          )}
+          <img
+            src={images[currentIndex]}
+            alt={`Project image ${currentIndex + 1}`}
+            className="w-full h-full object-cover transition-opacity duration-300"
+            style={{ opacity: isLoading ? 0.7 : 1 }}
+          />
+          
+          {/* Navigation Arrows */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={goToPrevious}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white"
+                aria-label="Previous image"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white"
+                aria-label="Next image"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </>
+          )}
+
+
+        </div>
+      </div>
+
+      {/* Dots Indicator */}
+      {images.length > 1 && (
+        <div className="flex justify-center gap-2 mt-4 pb-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToImage(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400 ${
+                currentIndex === index 
+                  ? 'bg-gray-900 dark:bg-white w-8' 
+                  : 'bg-gray-400 hover:bg-gray-600 dark:hover:bg-gray-300'
+              }`}
+              aria-label={`Go to image ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Auto-play Toggle */}
+      {images.length > 1 && (
+        <div className="absolute top-4 right-4">
+          <button
+            onClick={toggleAutoPlay}
+            className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white"
+            aria-label={isAutoPlaying ? 'Pause auto-play' : 'Start auto-play'}
+          >
+            {isAutoPlaying ? <Pause size={16} /> : <Play size={16} />}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('club');
@@ -164,11 +340,7 @@ export default function Portfolio() {
         <div className="grid gap-8">
           {projects.map((project, idx) => (
             <div key={idx} className="border border-gray-200 dark:border-zinc-800 rounded-lg overflow-hidden bg-white dark:bg-zinc-900">
-              <div className="flex overflow-x-auto snap-x scrollbar-hide bg-gray-100 dark:bg-zinc-900">
-                {project.images.map((img, i) => (
-                  <img key={i} src={img} alt="project" className="w-full h-auto flex-shrink-0 snap-center" />
-                ))}
-              </div>
+              <ImageGallery images={project.images} />
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-gray-600 dark:text-zinc-400 mb-4">{project.description}</p>
