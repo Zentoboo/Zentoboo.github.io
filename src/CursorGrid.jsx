@@ -6,7 +6,7 @@ export default function CursorGrid({ isDarkMode = true }) {
     const containerRef = useRef(null);
 
     const maxRows = 8;
-    const targetColumns = { desktop: 25, tablet: 20, mobile: 15 };
+    const targetColumns = { desktop: 25, tablet: 15, mobile: 10 };
 
     const calculateColumns = useCallback((containerWidth) => {
         if (containerWidth >= 1024) {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import Portfolio from './Portfolio';
-import Test from './Test';
+import Gallery from './Gallery';
 import { Moon, Sun } from 'lucide-react';
 import CursorGrid from "./CursorGrid";
 
@@ -42,10 +42,10 @@ export default function App() {
                                     portfolio
                                 </Link>
                                 <Link
-                                    to="/test"
-                                    className={`hover:text-gray-600 dark:hover:text-zinc-400 transition ${location.pathname === '/test' ? 'font-semibold' : ''}`}
+                                    to="/gallery"
+                                    className={`hover:text-gray-600 dark:hover:text-zinc-400 transition ${location.pathname === '/gallery' ? 'font-semibold' : ''}`}
                                 >
-                                    test
+                                    gallery
                                 </Link>
                                 <button
                                     onClick={() => setIsDarkMode(!isDarkMode)}
@@ -63,7 +63,7 @@ export default function App() {
             {/* Routes */}
             <Routes>
                 <Route path="/" element={<Portfolio />} />
-                <Route path="/test" element={<Test isDarkMode={isDarkMode} />} />
+                <Route path="/gallery" element={<Gallery/>} />
             </Routes>
 
             {/* Footer */}
