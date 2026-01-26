@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 export default function CursorGrid({ isDarkMode = true }) {
     const [hoveredBox, setHoveredBox] = useState(null);
+    const [randomBoxes, setRandomBoxes] = useState(new Set());
     const [dimensions, setDimensions] = useState({ cols: 0, rows: 8, boxSize: 40 });
     const containerRef = useRef(null);
 
@@ -16,7 +17,7 @@ export default function CursorGrid({ isDarkMode = true }) {
         } else {
             return targetColumns.mobile;
         }
-    }, [targetColumns.desktop, targetColumns.tablet, targetColumns.mobile]);
+    }, []);
 
     const calculateBoxSize = (containerWidth, cols) => {
         return containerWidth / cols;
@@ -31,9 +32,9 @@ export default function CursorGrid({ isDarkMode = true }) {
                 const cols = calculateColumns(width);
                 const boxSize = calculateBoxSize(width, cols);
                 setDimensions({
-                    cols: cols,
+                    cols,
                     rows: maxRows,
-                    boxSize: boxSize
+                    boxSize
                 });
             }
         };
@@ -51,7 +52,7 @@ export default function CursorGrid({ isDarkMode = true }) {
         };
     }, [calculateColumns]);
 
-    // Global mouse tracking
+    // Mouse tracking
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!containerRef.current) return;
@@ -60,13 +61,11 @@ export default function CursorGrid({ isDarkMode = true }) {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            // Check if mouse is within the grid
             if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
                 setHoveredBox(null);
                 return;
             }
 
-            // Calculate which box is hovered
             const col = Math.floor(x / dimensions.boxSize);
             const row = Math.floor(y / dimensions.boxSize);
 
@@ -79,6 +78,34 @@ export default function CursorGrid({ isDarkMode = true }) {
 
         window.addEventListener('mousemove', handleMouseMove);
         return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, [dimensions]);
+
+    // Randomizer effect
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (!dimensions.cols || !dimensions.rows) return;
+
+            const row = Math.floor(Math.random() * dimensions.rows);
+            const col = Math.floor(Math.random() * dimensions.cols);
+            const id = `${row}-${col}`;
+
+            setRandomBoxes(prev => {
+                const next = new Set(prev);
+                next.add(id);
+
+                setTimeout(() => {
+                    setRandomBoxes(p => {
+                        const copy = new Set(p);
+                        copy.delete(id);
+                        return copy;
+                    });
+                }, 600);
+
+                return next;
+            });
+        }, 120);
+
+        return () => clearInterval(interval);
     }, [dimensions]);
 
     const getRandomPastelColor = (id, opacity) => {
@@ -108,8 +135,6 @@ export default function CursorGrid({ isDarkMode = true }) {
     }
 
     const getOpacity = (row) => {
-        // row 0 (top) = 0% opacity (fully transparent)
-        // row 7 (bottom) = 50% opacity (half opaque)
         return (row / (maxRows - 1)) * 0.5;
     };
 
@@ -133,9 +158,12 @@ export default function CursorGrid({ isDarkMode = true }) {
                 }}
             >
                 {boxes.map(({ row, id }) => {
-                    const isHovered = hoveredBox === id;
                     const opacity = getOpacity(row);
                     const pastelColor = getRandomPastelColor(id, opacity);
+
+                    const isHovered = hoveredBox === id;
+                    const isRandom = randomBoxes.has(id);
+                    const isActive = isHovered || isRandom;
 
                     return (
                         <div
@@ -143,8 +171,10 @@ export default function CursorGrid({ isDarkMode = true }) {
                             className="transition-all duration-300 ease-out"
                             style={{
                                 height: `${dimensions.boxSize}px`,
-                                backgroundColor: isHovered ? pastelColor : `rgba(${bgColorRgb}, ${opacity})`,
-                                boxShadow: isHovered
+                                backgroundColor: isActive
+                                    ? pastelColor
+                                    : `rgba(${bgColorRgb}, ${opacity})`,
+                                boxShadow: isActive
                                     ? `0 0 15px ${pastelColor}, inset 0 0 15px ${pastelColor}`
                                     : 'none',
                                 border: `1px solid rgba(${borderColorRgb}, ${opacity})`
