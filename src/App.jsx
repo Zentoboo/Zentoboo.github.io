@@ -30,8 +30,8 @@ export default function App() {
                 <div className="max-w-4xl px-12 mx-auto py-4">
                     <div className="flex items-center justify-between">
                         <div className="text-xl font-semibold hidden">Bertrand Christopher</div>
-                        <div className="text-xs font-bold text-gray-400 lg:block">
-                            under construction... gonna continue after exam T.T
+                        <div className="text-xs font-bold text-gray-400 lg:block ">
+                            
                         </div>
                         <div className="flex items-center gap-6">
                             <div className="flex gap-4 md:gap-6 text-sm">
